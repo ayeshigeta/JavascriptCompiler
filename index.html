@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>SourceMap Test</title>
+	</head>
+	<body>
+		<p> Testing SourceMap </p>
+		<a href="#" class="button">home</a>
+	</body>
+	
+	<!-- load minified version of jQuery-->
+	<script src="js/min/jquery.js" type="text/javascript"></script>
+	
+	<script>
+		$(".button").click(function(e) {
+			// put a breakpoint here and debug using non-minified version of jquery.
+			// sweet! 
+			$("p").css("color", "red");
+		});
+		
+	</script>
+</html>
