@@ -51,7 +51,7 @@ public class JavascriptCompiler {
 		Compiler.setLoggingLevel(Level.INFO);
 
 		CompilerOptions options = new CompilerOptions();
-		options.sourceMapOutputPath = sourceFile.getName();
+		options.sourceMapOutputPath = minFile.getName();
 		options.sourceMapFormat = SourceMap.Format.V3;
 		
 		// Fix sourceMap to source script reference.
