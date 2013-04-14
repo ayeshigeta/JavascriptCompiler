@@ -1,0 +1,31 @@
+SourceMap enables you to map a minified file back to its source.
+
+I found this article very helpful to understand sourcemaps 
+http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
+
+Running the java main will minify and generate sourcemap for jquery.js source.
+
+How to test SourceMap in Chrome.
+1. Open chrome and from Dev tools > General > Settings check "Enable Source Maps".
+2. Navigate to index.html in chrome browser.
+3. put a break point in index.html click handler and step into jQuery source(not the minified version).
+
+
+----------------------------------------------------------------------------
+
+You can generate minified javascript and sourcemap using a commandline option.
+
+Run the following from JacascriptCompiler directory
+
+java -jar lib/compiler.jar --compilation_level SIMPLE_OPTIMIZATIONS --js js/jquery.js --js_output_file js/min/jquery.js --create_source_map js/min/jquery.js.map --source_map_format V3
+
+1. Edit minified source(/js/min/jquery.js) to add the sourcemap url(without the quote)
+"//@ sourceMappingURL=jquery.js.map"
+The compiler doesn't automatically add the source map location to the minified file.
+
+2. I couldn't find a command line option manipulate the sourcemap relative path to the source file.
+You can accomplish that by adding "sourceRoot" or Change "sources" from ["js/jquery.js"] to ["../jquery.js"]
+
+Now follow the above step to test sourcemapping.
+
+
