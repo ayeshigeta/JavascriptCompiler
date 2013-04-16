@@ -80,7 +80,7 @@ public class JavascriptCompiler {
 		String mappingUrl = String.format("//@ sourceMappingURL=%s", sourceMapFile.getName());
 		String compiledSource = compiler.toSource();
 		
-		return String.format("%s\n%s\n", compiledSource, mappingUrl);
+		return String.format("%s\n/*\n%s\n*/", compiledSource, mappingUrl);
 	}
 	
 	/*
