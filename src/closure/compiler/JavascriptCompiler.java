@@ -94,8 +94,9 @@ public class JavascriptCompiler {
 	    } catch (IOException e) {
 	      throw new RuntimeException("unexpected exception", e);
 	    }
+	    String XSSI_guard = ")]}";
 	    
-		return sb.toString();
+		return String.format("%s\n%s", XSSI_guard, sb);
 	}
 	
 	private static void writeToFile(File file, String content) throws IOException {
